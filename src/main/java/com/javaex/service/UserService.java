@@ -35,5 +35,12 @@ public class UserService {
 		
 		return userDao.insert(userVo);
 	}
+	
+	//로그인
+	public UserVo login(UserVo userVo) {
+		System.out.println("[UserService.login()]");
+		
+		return userDao.selectUser(userVo);
+	}
 
 }

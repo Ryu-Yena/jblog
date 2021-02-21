@@ -26,5 +26,13 @@ public class UserDao {
 		
 		return sqlSession.insert("user.insert", userVo);
 	}
+	
+	//로그인 --> 회원정보 가져오기
+	public UserVo selectUser(UserVo userVo) {
+		System.out.println("UserDao.selectUser");
+		System.out.println(userVo.toString());
+		
+		return sqlSession.selectOne("user.selectUser", userVo);
+	}
 
 }
