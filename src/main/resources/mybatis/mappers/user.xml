@@ -20,7 +20,7 @@
 
 
 	<!-- 회원가입 정보 저장 -->
-	<insert id="userInsert" parameterType="com.javaex.vo.UserVo">
+	<insert id="insert" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
 			insert into users
 			values (seq_users_no.nextval, 

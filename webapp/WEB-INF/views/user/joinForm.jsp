@@ -108,27 +108,22 @@
 		
 		//패스워드 체크준비
 		var pw = $("txtPassword").val();
-		console.log(pw.length);
-		
-		//동의여부체크준비
-		var check = $("#chkAgree").is(":checked"); //false --> 체크안했음
-		
+		console.log(pw);
+	
 		//이름 입력여부
 		var name = $("#txtUserName").val();
-		console.log(name)
+		console.log(name);
 		
-		if(pw.length < 8){
-			//패스워드 체크 나머지 alert(패스워드는 8글자 이상입니다.)
-			alert("패스워드는 8글자 이상입니다.");
+				//동의여부체크준비
+		var check = $("#chkAgree").is(":checked"); //false --> 체크안했음
+		
+		if(pw == null){
+			alert("패스워드를 입력해주세요");
 			return false;
-		}
-		
-		if(!check){
+		}else if(!check){
 			alert("동의해주세요");
 			return false;
-		}
-		
-		if(name == null){
+		}else if(name == null){
 			alert("이름을 입력해주세요");
 			return false;
 		}

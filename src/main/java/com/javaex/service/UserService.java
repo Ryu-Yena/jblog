@@ -14,7 +14,7 @@ public class UserService {
 	
 	//회원가입- 아이디체크
 	public String idcheck(String id) {
-		System.out.println("userService idcheck() " + id);
+		System.out.println("[UserService.idcheck()]" + id);
 		UserVo userVo = userDao.selectOne(id);
 		String result = "";
 
