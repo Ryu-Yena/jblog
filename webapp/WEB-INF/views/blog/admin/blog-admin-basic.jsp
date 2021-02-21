@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +7,7 @@
 <meta charset="UTF-8">
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 
 
 </head>
@@ -14,6 +16,7 @@
 	<div id="wrap">
 		
 		<!-- 개인블로그 해더 -->
+		<c:import url="/WEB-INF/views/includes/blog-header.jsp"></c:import>
 
 
 		<div id="content">
@@ -25,7 +28,7 @@
 			<!-- //admin-menu -->
 			
 			<div id="admin-content">
-				<form action="" method="post" >
+				<form action="${pageContext.request.contextPath}/upload" method="post" enctype="multipart/form-data">
 	 		      	<table id="admin-basic">
 	 		      		<colgroup>
 							<col style="width: 100px;">
@@ -33,12 +36,21 @@
 						</colgroup>
 			      		<tr>
 			      			<td><label for="textTitle">블로그 제목</label></td>
-			      			<td><input id="textTitle" type="text" name="blogTitle" value=""></td>
+			      			<td><input id="textTitle" type="text" name="blogTitle" value="${blogVo.blogTitle}"></td>
 			      		</tr>
 			      		<tr>
 			      			<td><label>로고이미지</label></td>
-			      			<td class="text-left"><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>   
-			      		</tr>      		
+							<c:choose>
+								<c:when test="${blogVo.logoFile == null}">
+									<td class="text-left"><img
+										src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>
+								</c:when>
+								<c:otherwise>
+									<td class="text-left"><img
+										src="${pageContext.request.contextPath}/upload/${blogVo.logoFile}"></td>
+								</c:otherwise>
+							</c:choose>
+						</tr>      		
 			      		<tr>
 			      			<td>&nbsp;</td>
 			      			<td><input id="textLogo" type="file" name="file"></td>      			
@@ -56,10 +68,13 @@
 		
 		
 		<!-- 개인블로그 푸터 -->
-		
+		<c:import url="/WEB-INF/views/includes/blog-footer.jsp"></c:import>
 	
 	
 	</div>
 	<!-- //wrap -->
 </body>
+
+
+
 </html>

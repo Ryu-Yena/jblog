@@ -1,9 +1,13 @@
 package com.javaex.service;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javaex.dao.BlogDao;
 import com.javaex.dao.UserDao;
+import com.javaex.vo.BlogVo;
 import com.javaex.vo.UserVo;
 
 @Service
@@ -11,6 +15,9 @@ public class UserService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private BlogDao blogDao;
 	
 	//회원가입- 아이디체크
 	public String idcheck(String id) {
@@ -32,6 +39,16 @@ public class UserService {
 	//회원가입
 	public int join(UserVo userVo) {
 		System.out.println("[UserService.join()]");
+		
+		
+		String id = userVo.getId();
+		String blogTitle = userVo.getUserName()+ "의 블로그 입니다.";
+		
+		
+		BlogVo blogVo = new BlogVo(id, blogTitle);
+		System.out.println(blogVo.toString());
+		
+		blogDao.insertBlog(blogVo);
 		
 		return userDao.insert(userVo);
 	}

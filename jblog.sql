@@ -17,7 +17,11 @@ create table users(
 --시퀀스 생성
 create sequence seq_users_no
 Increment by 1
-start with 1;
+start with 1
+NOCACHE;
+
+delete from users
+where userNo =3;
 
 commit;
 
@@ -61,7 +65,8 @@ create table category(
 --시퀀스 생성
 create sequence seq_category_no
 Increment by 1
-start with 1;
+start with 1
+NOCACHE;
 
 commit;
 
@@ -91,7 +96,8 @@ create table comments(
 --시퀀스 생성
 create sequence seq_comments_no
 Increment by 1
-start with 1;
+start with 1
+NOCACHE;
 
 commit;
 
@@ -118,9 +124,12 @@ create table post(
 --시퀀스 생성
 create sequence seq_post_no
 Increment by 1
-start with 1;
+start with 1
+NOCACHE;
 
 commit;
     
-    
-    
+
+DELETE FROM users
+           WHERE userno = 2;
+           

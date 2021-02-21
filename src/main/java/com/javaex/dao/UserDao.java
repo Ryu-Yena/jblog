@@ -15,8 +15,8 @@ public class UserDao {
 	//회원가임 id체크
 	public UserVo selectOne(String id) {
 		System.out.println("UserDao.selectOne " + id);
+		
 		return sqlSession.selectOne("user.selectById", id);
-
 	}
 	
 	//회원가입 --> 회원정보 저장
@@ -24,7 +24,7 @@ public class UserDao {
 		System.out.println("UserDao.insert");
 		System.out.println(userVo.toString());
 		
-		return sqlSession.insert("user.insert", userVo);
+		return sqlSession.insert("user.userInsert", userVo);
 	}
 	
 	//로그인 --> 회원정보 가져오기

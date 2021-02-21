@@ -5,8 +5,7 @@
 
 
 	<!-- id체크 -->
-	<select id="selectById" parameterType="string"
-		resultType="com.javaex.vo.UserVo">
+	<select id="selectById" parameterType="string" resultType="com.javaex.vo.UserVo">
 		<![CDATA[
 			select  userNo,
 			        id,
@@ -20,7 +19,7 @@
 
 
 	<!-- 회원가입 정보 저장 -->
-	<insert id="insert" parameterType="com.javaex.vo.UserVo">
+	<insert id="userInsert" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
 			insert into users
 			values (seq_users_no.nextval, 

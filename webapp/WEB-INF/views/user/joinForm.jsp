@@ -107,9 +107,9 @@
 	$("#joinForm").on("submit", function(){
 		
 		//패스워드 체크준비
-		var pw = $("txtPassword").val();
+		var pw = $("#txtPassword").val();
 		console.log(pw);
-	
+		
 		//이름 입력여부
 		var name = $("#txtUserName").val();
 		console.log(name);
@@ -120,10 +120,14 @@
 		if(pw == null){
 			alert("패스워드를 입력해주세요");
 			return false;
-		}else if(!check){
+		}
+
+		if(!check){
 			alert("동의해주세요");
 			return false;
-		}else if(name == null){
+		}
+		
+		if(name == null){
 			alert("이름을 입력해주세요");
 			return false;
 		}

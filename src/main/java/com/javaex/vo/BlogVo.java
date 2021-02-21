@@ -19,6 +19,12 @@ public class BlogVo {
 		this.blogTitle = blogTitle;
 		this.logoFile = logoFile;
 	}
+	
+	public BlogVo(String id, String blogTitle) {
+		super();
+		this.id = id;
+		this.blogTitle = blogTitle;
+	}
 
 
 
